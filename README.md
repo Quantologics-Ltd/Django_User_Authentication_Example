@@ -9,7 +9,7 @@ This code demonstrates a simple Django website with user authentication and regi
 
 Create virtual environment in a console:
 
-'python -m venv myenv'
+`python -m venv myenv`
 
 or by adding Python interpreter in your editor's settings. 
 
