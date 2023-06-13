@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title> Django Website Example </title>
+       <link rel="stylesheet" href="/static/bootstrap501.min.css">
+       <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+  </head>
+   <nav class="navbar navbar-expand-lg navbar-light bg-gradient-light" style="background-color: #200040;">
+       <span> &nbsp; &nbsp; </span>
+       <a    style="color:white">  Powered by  </a>
+       <a class="navbar-brand" href="#" style="color:white">  <img src="{% static 'logo.png' %}" style="object-fit:cover;
+            width:150px;
+            height:50px;
+            border: none"/>  This is a Django website with user authentication for your business </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    </ul>
+    </div>
+       {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a    style="color:white">  You are logged in </a >
+      </li>
+       <span> &nbsp; &nbsp; </span>
+       <li>
+          <form action="{% url 'logged_in' %}" method="post">
+              {% csrf_token %}
+        <button type="submit"> Logged-in view </button>
+          </form>
+      </li>
+       <span> &nbsp; &nbsp;</span>
+      <li>
+          <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+        <button type="submit"> Logout </button>
+          </form>
+      </li>
+       <span> &nbsp; &nbsp;</span>
+      {% endif %}
+
+   </nav>  
+<div class="text-center" align="center">
+    <br>
+   <form action="http://127.0.0.1:8000/login" align="middle">
+    <input type="submit" value="sign in"/>
+   </form>
+    <br>
+   <form action="http://127.0.0.1:8000/register" align="middle">
+    <input type="submit" value="sign up"/> 
+   </form>
+ </div> 
+  
+<center>
+  <img src="{% static 'logo.png' %}" align="middle"/>
+</center>
+
+<div>
+ <p style="color:dark" align="middle"> Sign up to try it! </p>
+</div>
+
+</html>

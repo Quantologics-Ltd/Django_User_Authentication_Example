@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+  <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    {% load static %}
+       <link rel="stylesheet" href="/static/bootstrap501.min.css">
+       <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+    <title>Django Website</title>
+  </head>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-light" style="background-color: #200040;">
+	  <!-- other colors: 150053 , -->
+      <span> &nbsp; &nbsp; </span>
+   <a    style="color:white">  Powered by  </a>
+	  
+  <a class="navbar-brand" href="#">  <img src="{% static 'logo.png' %}" style="object-fit:cover;
+            width:150px;
+            height:50px;
+            border: none"/>  Logged-in view of the website </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/" > Home <span class="sr-only">(Main Page)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/Quantologics-Ltd" target="_blank"> Quantologics </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.openai.com" target="_blank"> GPT Provider - Open.AI </a>
+      </li>
+    </ul>
+  </div>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a    style="color:white">  You are logged in </a >
+      </li>
+       <span>&nbsp; &nbsp; &nbsp;</span>
+      <li>
+          <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+        <button type="submit"> Logout </button>
+          </form>
+      </li>
+      <span>&nbsp; &nbsp; &nbsp;</span>
+      <li>
+          <form action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+        <button type="submit"> Switch User </button>
+          </form>
+      </li>
+      <span>&nbsp; &nbsp; &nbsp;</span>
+      {% endif %}
+</nav>  
+  
+  <br>
+  <div class="col-12" style="text-align: center;">
+    <h3> Welcome, {{ username }}! </h3>
+
+{% if user.is_authenticated %}
+    <p>  You have successfully logged in. </p>
+        <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <p>Please log in to view this page.</p>
+{% endif %}
+    </div>
+    </form>
+
+  </div>
+
+</html>

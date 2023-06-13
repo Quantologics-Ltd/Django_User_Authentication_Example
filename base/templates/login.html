@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <br>
+    <form method="post" action="{% url 'login' %}?next={% url 'logged_in' %}">
+        {% csrf_token %}
+        <div class="col-12" style="text-align: center;" align="center">
+            <label for="username">Username:</label>
+        </div>
+        <div class="col-12" style="text-align: center;" align="center">
+            <input type="text" id="username" name="username" required>
+        </div>
+        <br>
+        <div class="col-12" style="text-align: center;" align="center">
+        <label for="password">Password:</label>
+        </div>
+        <div class="col-12" style="text-align: center;" align="center">
+        <input type="password" id="password" name="password" required>
+        </div>
+        <br>
+        <div class="col-12" style="text-align: center;" align="center">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+{% endblock %}
