@@ -33,9 +33,10 @@ Create a local settings file: In the project's settings directory, create a file
 
 settings/local_settings.py:
 
-
-`from .settings import *`
-`DEBUG = True`
+```python
+from .settings import *
+DEBUG = True
+```
 
 or alternatively run in a console:
 
