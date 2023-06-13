@@ -31,10 +31,11 @@ or by adding Python interpreter in your editor's settings.
 
 Create a local settings file: In the project's settings directory, create a file named local_settings.py to store local development settings. This file will override certain settings when running the project locally:
 
-`# settings/local_settings.py
+settings/local_settings.py:
+`
 from .settings import *
 DEBUG = True
-# ...
+...
 `
 
 or alternatively run in a console:
