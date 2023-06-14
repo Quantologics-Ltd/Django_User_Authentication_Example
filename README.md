@@ -62,6 +62,12 @@ Apply the database migrations to set up the project's database schema:
 
 The development server should start, and you can access the application by visiting http://localhost:8000 or http://127.0.0.1:8000 in your web browser.
 
+# Website views
 
+![alt text](./main_view.png)
 
+![alt text](./registration.png)
 
+![alt text](./logged.png)
+
+![alt text](./expired.png)
